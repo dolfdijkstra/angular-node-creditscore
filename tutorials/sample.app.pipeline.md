@@ -240,7 +240,7 @@ A pipeline can have its own base box (Docker container), like in this example th
 
 As you can see in this configuration we have the default pipeline *build* which executes the *npm-install* build, a *push-to-releases* pipeline which will upload the container packaged application to Oracle Container Registry, a *deploy-to-oke* pipeline which deploys the application to Oracle Container Engine and the *rest-functional-test* pipeline which is intended to test the application during the CI/CD workflow. You will create these pipelines in the next steps.
 
-Please also note the environment variables ($KUBERNETES_MASTER, $KUBERNETES_MASTER) usage which enables flexible configuration and safe authentication. When the pipelines and the workflow created you will define these variables and set the values.
+Please also note the environment variables ($KUBERNETES_MASTER, $KUBERNETES_TOKEN) usage which enables flexible configuration and safe authentication. When the pipelines and the workflow created you will define these variables and set the values.
 
 ### Define CI/CD workflow ###
 
@@ -308,7 +308,7 @@ Go back your application select **Pipelines** and your application (angular-node
 
 The pipelines can have independent variables per pipelines or *global* scope variables. To simplify the configuration define *global* scope variables. Click the **Workflow** tab then select **Environment** tab. Set the name and value pairs for the following configuration variables.
 
-+ **KUBERNETES\_ADDRESS** = Kubernetes Address with *https://* prefix
++ **KUBERNETES\_MASTER** = Copy the address from kubeconfig file (line 5) the address of the master. It shoud start with *https://* prefix
 + **KUBERNETES\_TOKEN** = your personal token
 
 When you need to add new variable click **Add** button which saves the current row and add a new one. You can use the **Protected** tick box to store safely your value e.g. personal token.
